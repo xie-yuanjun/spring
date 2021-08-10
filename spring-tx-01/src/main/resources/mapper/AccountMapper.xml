@@ -1,0 +1,14 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.mapper.AccountMapper">
+    <select id="selectAll" resultType="account" flushCache="true">
+        select id, name, money from account;
+    </select>
+
+    <select id="selectMoney" resultType="int" flushCache="true">
+        select money from account where id = #{id};
+    </select>
+
+    <update id="updateMoney" flushCache="true">
+        update account set money = money + #{money} where id = #{id};
+    </update>
+</mapper>

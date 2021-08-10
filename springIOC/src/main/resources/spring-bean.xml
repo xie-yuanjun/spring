@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        https://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/aop
+                        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--  开启注解扫描  -->
+    <context:component-scan base-package="com.xiaoxie"/>
+    <bean id="studentService" class="com.xiaoxie.service.StudentService"/>
+
+    <!-- 事务管理器 -->
+<!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
+
+    <!-- 配置 transactionTemplate -->
+<!--    <bean id="transactionTemplate"-->
+<!--          class="org.springframework.transaction.support.TransactionTemplate">-->
+<!--        <property name="transactionManager">-->
+<!--            <ref bean="transactionManager"/>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!-- 2.数据库连接池 c3p0 -->
+<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        &lt;!&ndash; 配置连接池属性 &ndash;&gt;-->
+<!--        <property name="driverClass" value="${jdbc.driver}" />-->
+<!--        <property name="jdbcUrl" value="${jdbc.url}" />-->
+<!--        <property name="user" value="${jdbc.username}" />-->
+<!--        <property name="password" value="${jdbc.password}" />-->
+<!--    </bean>-->
+
+    <!--   AOP配置   -->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash; 配置切点 &ndash;&gt;-->
+<!--        <aop:pointcut id="pt1" expression="execution(* *..service.*.*(..))"/>-->
+
+<!--        &lt;!&ndash; 配置切面 &ndash;&gt;-->
+<!--        <aop:aspect id="aspect1" ref="aspect">-->
+<!--            &lt;!&ndash; 切面和切点相关联 &ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="pt1"/>-->
+<!--            <aop:after-returning method="afterReturning" pointcut-ref="pt1"/>-->
+<!--            <aop:after-throwing method="afterThrowing" pointcut-ref="pt1"/>-->
+<!--            <aop:after method="after" pointcut-ref="pt1"/>-->
+<!--&lt;!&ndash;            <aop:around method="around" pointcut-ref="pt1"/>&ndash;&gt;-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+</beans>
